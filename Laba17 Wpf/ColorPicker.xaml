@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="Laba17_Wpf.ColorPicker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Laba17_Wpf"
+             mc:Ignorable="d" 
+             Name="colorPicker"
+             d:DesignHeight="120" d:DesignWidth="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="R" VerticalAlignment="Center"/>
+                <Slider Name="sliderRed"
+                        Value="{Binding ElementName=colorPicker, Path=Red}"
+                        Width="150" Margin="10"
+                        Minimum="0" Maximum="300"
+                        TickFrequency="1"
+                        IsSnapToTickEnabled="True"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="G" VerticalAlignment="Center"/>
+                <Slider Name="sliderGreen"
+                        Value="{Binding ElementName=colorPicker, Path=Green}"
+                        Width="150"
+                        Margin="10"
+                        Minimum="0" Maximum="300"
+                        TickFrequency="1"
+                        IsSnapToTickEnabled="True"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="B" VerticalAlignment="Center"/>
+                <Slider Name="sliderBlue"
+                        Value="{Binding ElementName=colorPicker, Path=Blue}"
+                        Width="150"
+                        Margin="10"
+                        Minimum="0"
+                        Maximum="300"
+                        TickFrequency="1"
+                        IsSnapToTickEnabled="True" />
+
+            </StackPanel>
+        </StackPanel>
+        <Rectangle Grid.Column="1"
+                   
+                   Stroke="Black" StrokeThickness="1" RadiusX="10" RadiusY="10"
+                    Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="{Binding ElementName=colorPicker,Path=Color}"></SolidColorBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+</UserControl>
